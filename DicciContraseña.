@@ -1,1 +1,6 @@
 import string
+
+
+def generar_combinaciones():
+letras = string.ascii_uppercase  # Obtener todas las letras mayúsculas del alfabeto
+numeros = [str(i) for i in range(10)]  # Obtener todos los dígitos del 0 al 9
