@@ -1,6 +1,40 @@
 import string
+import random
 
+def generar_codigo():
+letras = string.ascii_uppercase  
+numeros = [str(i) for i in range(10)]  # Obtener todos los dígitos del 0 al 9
+codigo = ''
+for _ in range(4):
+letra = random.choice(letras)
+codigo += letra
+for _ in range(2):
+numero = random.choice(numeros)
+codigo += numero
+return codigo
 
 def generar_combinaciones():
-letras = string.ascii_uppercase  # Obtener todas las letras mayúsculas del alfabeto
-numeros = [str(i) for i in range(10)]  # Obtener todos los dígitos del 0 al 9
+combinaciones = []
+while True:
+codigo = generar_codigo()
+If codigo not in combinaciones:
+combinaciones.append(codigo)
+if len(combinaciones) >= 10000:
+break
+return combinaciones
+
+def main():
+combinaciones_generadas = generar_combinaciones()
+total_combinaciones = len(combinaciones_generadas)
+print(f"Se han generado un total de {total_combinaciones} combinaciones.")
+    
+contrasena = random.choice(combinaciones_generadas)
+print(f"Tu contraseña es: {contrasena}")
+   
+respuesta = input("¿Desea generar otro código? (Sí/No): ")
+If respuesta.lower() == "sí" or respuesta.lower() == "si":
+Main()
+Else:
+Print("¡Gracias por usar nuestro servicio!")
+if __name__ == "__main__":
+main()
